@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mariadb-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://fedos1993.github.io/helm-project/
+    targetRevision: 0.1.1
+    chart: mariadb
+    helm:
+      valueFiles:
+        - values-prod.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
