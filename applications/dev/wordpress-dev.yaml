@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: wordpress-dev
   namespace: argocd
+  annotations:
+    notifications.argoproj.io/subscribe.on-deployed: "slack:prod-alerts,slack:@U084W6B1ZPC"
 spec:
   project: default
   source:
