@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://fedos1993.github.io/helm-project/
-    targetRevision: 0.17.4
+    targetRevision: ""
     chart: wordpress
     helm:
       valueFiles:
